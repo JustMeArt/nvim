@@ -1,2 +1,31 @@
-plugin/
+# plugin managers
 lazy-lock.json
+packer_compiled.lua
+
+# plugin installs
+plugin/
+.lazy/
+.packer/
+
+# cache
+.cache/
+shada/
+session/
+undo/
+swap/
+
+# LSP tools
+mason/
+
+# secrets
+.env
+.env.*
+*.pem
+*.key
+*.crt
+secrets.lua
+private.lua
+
+# OS
+.DS_Store
+Thumbs.db
