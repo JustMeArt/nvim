@@ -21,6 +21,7 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+      -- Standard Server
       local servers = { "ts_ls", "lua_ls", "clangd", "jdtls" }
 
       for _, server in ipairs(servers) do
@@ -29,6 +30,19 @@ return {
         })
         vim.lsp.enable(server)
       end
+
+      -- ✅ PYRIGHT MIT VENV KONFIG
+      vim.lsp.config("pyright", {
+        capabilities = capabilities,
+        settings = {
+          python = {
+            venvPath = vim.fn.expand("~/venvs"),
+            venv = "qiskit",
+          },
+        },
+      })
+
+      vim.lsp.enable("pyright")
 
       -- Keymaps
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
